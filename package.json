@@ -9,8 +9,10 @@
     "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.4",
     "@types/helmet": "^0.0.42",
+    "@types/jsonwebtoken": "^8.3.0",
     "@types/morgan": "^1.7.35",
     "@types/node": "^11.9.6",
+    "@types/twilio": "^0.0.10",
     "gql-merge": "^0.0.6",
     "graphql-to-typescript": "^0.1.2",
     "nodemon": "^1.18.10",
@@ -33,9 +35,11 @@
     "graphql-tools": "^4.0.4",
     "graphql-yoga": "^1.17.4",
     "helmet": "^3.15.1",
+    "jsonwebtoken": "^8.5.0",
     "merge-graphql-schemas": "^1.5.8",
     "morgan": "^1.9.1",
     "pg": "^7.8.1",
+    "twilio": "^3.29.0",
     "typeorm": "^0.2.14"
   }
 }
