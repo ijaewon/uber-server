@@ -5,6 +5,7 @@ import {
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import createJWT from "../../../utils/createJWT";
+import Verification from "../../../entities/Verification";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -22,13 +23,25 @@ const resolvers: Resolvers = {
             token: null
           };
         } else {
-          const newUser = await User.create({ ...args }).save();
-          const token = createJWT(newUser.id);
-          return {
-            ok: true,
-            error: null,
-            token
-          };
+          const phoneVerification = await Verification.findOne({
+            payload: args.phoneNumber,
+            verified: true
+          });
+          if (phoneVerification) {
+            const newUser = await User.create({ ...args }).save();
+            const token = createJWT(newUser.id);
+            return {
+              ok: true,
+              error: null,
+              token
+            };
+          } else {
+            return {
+              ok: false,
+              error: "You haven't verified your phone number",
+              token: null
+            };
+          }
         }
       } catch (error) {
         return {
