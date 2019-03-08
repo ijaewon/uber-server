@@ -4,7 +4,7 @@ import {
   UpdateMyProfileResponse
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
-import cleanNullArgs from "../../../utils/cleanNullArgs";
+import cleanNullArgs from "../../../utils/cleanNullArg";
 import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
